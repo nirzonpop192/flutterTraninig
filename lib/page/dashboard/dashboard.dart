@@ -27,13 +27,22 @@ class DashBoard extends StatelessWidget {
                 )),
             Column(
                 children: transactions.map((trx) {
-              return Row(children: [
-                Text(trx.amount!.toString()),
-                Column(children: [
-                  Text(trx.title!),
-                  Text(trx.date!.toString()),
-                ],)
-              ],);
+              return Row(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+                    decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 2)),
+                    child: Text(trx.amount!.toString()),
+                  ),
+                  Column(
+                    children: [
+                      Text(trx.title!),
+                      Text(trx.date!.toString()),
+                    ],
+                  )
+                ],
+              );
             }).toList())
           ],
         ),
