@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../index.dart';
 import 'package:flutter/material.dart';
 
@@ -32,13 +34,16 @@ class DashBoard extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                     padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-                    decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 2)),
-                    child: Text(trx.amount!.toString()),
+                    decoration: BoxDecoration(border: Border.all(color: Colors.purple, width: 2)),
+                    child: Text("\$: ${trx.amount!}",
+                      style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.purple),),
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(trx.title!),
-                      Text(trx.date!.toString()),
+                      Text(trx.title!,
+                      style: TextStyle(color: Colors.purple,fontSize: 16,fontWeight: FontWeight.bold),),
+                      Text(trx.date!.toString(),style: TextStyle(color: Colors.grey,fontSize: 15),),
                     ],
                   )
                 ],
