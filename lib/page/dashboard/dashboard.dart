@@ -25,10 +25,15 @@ class DashBoard extends StatelessWidget {
                   elevation: 5,
                   child: Text("Chart"),
                 )),
-
             Column(
                 children: transactions.map((trx) {
-              return Text(trx.title!);
+              return Row(children: [
+                Text(trx.amount!.toString()),
+                Column(children: [
+                  Text(trx.title!),
+                  Text(trx.date!.toString()),
+                ],)
+              ],);
             }).toList())
           ],
         ),
