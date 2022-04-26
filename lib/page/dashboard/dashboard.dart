@@ -1,38 +1,36 @@
 import '../../index.dart';
 import 'package:flutter/material.dart';
 
-class DashBoard extends StatelessWidget{
-  final  List<Transaction> transactions=[
-    Transaction(
-        id: "1",
-        title: "Dim",
-        amount: 21.3,
-        date: DateTime.now()
-    )
+class DashBoard extends StatelessWidget {
+  final List<Transaction> transactions = [
+    Transaction(id: "1", title: "Dim", amount: 21.3, date: DateTime.now()),
+    Transaction(id: "2", title: "Alu", amount: 201.3, date: DateTime.now())
   ];
 
-     DashBoard ({Key? key}): super(key: key);
+  DashBoard({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>  Scaffold(
-    appBar: AppBar(title: const Text("Expense Cost"),),
-    body: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          width: double.infinity,
-          child: Card(
-            color: Colors.blue,
-            elevation: 5,
-            child: Text("Chart"),
-          )
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text("Expense Cost"),
         ),
-        Card(
-          child: Text("list of transection"),
-        )
-      ],
-    ),
-  );
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+                width: double.infinity,
+                child: Card(
+                  color: Colors.blue,
+                  elevation: 5,
+                  child: Text("Chart"),
+                )),
 
+            Column(
+                children: transactions.map((trx) {
+              return Text(trx.title!);
+            }).toList())
+          ],
+        ),
+      );
 }
